@@ -1,37 +1,35 @@
 {
-  "name": "myblog",
+  "name": "sanity-prac",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "main": "package.json",
-  "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
+    "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^4.4.0",
-    "react": "^19.1",
-    "react-dom": "^19.1",
+    "@stripe/stripe-js": "^7.8.0",
+    "next": "15.4.6",
+    "next-sanity": "^10.0.10",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "sanity": "^4.4.0",
-    "styled-components": "^6.1.18"
+    "stripe": "^18.4.0",
+    "styled-components": "^6.1.19",
+    "use-shopping-cart": "^3.2.0"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1",
-    "eslint": "^9.28",
-    "prettier": "^3.5",
-    "typescript": "^5.8"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
