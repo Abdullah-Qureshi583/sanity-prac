@@ -6,6 +6,11 @@ export const category = defineType({
   title: "Category Name",
   type: "document",
   fields: [
-    defineField({ name: "name", type: "string", title: "Category Name" }),
+    defineField({
+      name: "name",
+      type: "string",
+      title: "Category Name",
+      validation: (rule) => rule.required(),
+    }),
   ],
 });

@@ -6,32 +6,24 @@ export const heroImages = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "images",
-      title: "Images",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
-              name: "image",
-              type: "image",
-              title: "Image",
-              options: { hotspot: true },
-            },
-            {
-              name: "heading",
-              type: "string",
-              title: "Heading",
-            },
-            {
-              name: "subHeading",
-              type: "string",
-              title: "Sub Heading",
-            },
-          ],
-        },
-      ],
+      name: "image",
+      type: "image",
+      title: "Image",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
+      name: "title",
+      type: "string",
+      title: "Title",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "subTitle",
+      type: "string",
+      title: "Sub Title",
+      validation: (rule) => rule.required(),
     }),
   ],
 });
