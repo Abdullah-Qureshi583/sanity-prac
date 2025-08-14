@@ -21,15 +21,11 @@ const HERO_QUERY = `
         "imageUrl": image.asset->url        
     }
 `;
+const options = { next: { revalidate: 30 } };
 
 export default async function Hero() {
   // ✅ Server-side fetch (revalidate works here)
-  const slides: HeroSlideType[] = await client.fetch(
-    HERO_QUERY,
-    {},
-    { next: { revalidate: 30 } }
-  );
-  
+  const slides: HeroSlideType[] = await client.fetch(HERO_QUERY, {}, options);
 
   // Pass data to a client component that renders Swiper
   const HeroSlides = (await import("./HeroSlides")).default;

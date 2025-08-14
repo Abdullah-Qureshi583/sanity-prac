@@ -53,7 +53,7 @@ export default function HeroSlides({ slides }: { slides: HeroSlideType[] }) {
         loop={true}
         allowTouchMove={false}
         autoplay={{
-          delay: 1300, // 3 seconds
+          delay: 5000, 
           disableOnInteraction: false,
         }}
         // className="h-full"
