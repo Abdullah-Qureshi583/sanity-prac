@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { groq } from "next-sanity";
 import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { format } from 'date-fns';
+
 
 async function getProduct(slug: string): Promise<Product> {
   console.log("before query the slug us : ", slug);
@@ -110,4 +113,56 @@ export default async function ProductPage({
       </div>
     </div>
   );
+
+
+
+  //  return (
+  //   <div className="container mx-auto py-8">
+  //     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+  //       <div>
+  //         <Tabs defaultValue={product.images[0]?.color}>
+  //           <TabsList className="grid grid-cols-3 gap-4">
+  //             {product.images.map((img) => (
+  //               <TabsTrigger key={img.color} value={img.color}>
+  //                 {img.color}
+  //               </TabsTrigger>
+  //             ))}
+  //           </TabsList>
+  //           {product.images.map((img) => (
+  //             <TabsContent key={img.color} value={img.color}>
+  //               <div className="grid grid-cols-1 gap-4">
+  //                 {img.productImages.map((imageUrl, index) => (
+  //                   <div key={index} className="relative h-96 w-full">
+  //                     <Image
+  //                       src={imageUrl}
+  //                       alt={`${product.title} - ${img.color}`}
+  //                       fill
+  //                       className="object-cover rounded-lg"
+  //                     />
+  //                   </div>
+  //                 ))}
+  //               </div>
+  //             </TabsContent>
+  //           ))}
+  //         </Tabs>
+  //       </div>
+
+  //       <Card>
+  //         <CardContent className="p-6">
+  //           <h1 className="text-3xl font-bold mb-4">{product.title}</h1>
+  //           <div className="flex items-center gap-4 mb-4">
+  //             <span className="text-2xl font-bold">
+  //               ${product.price.toFixed(2)}
+  //             </span>
+  //             <span className="text-gray-600">{product.category}</span>
+  //           </div>
+  //           <p className="text-gray-700 mb-6">{product.bodyText}</p>
+  //           <div className="text-sm text-gray-500">
+  //             Added on {format(new Date(product.uploadedAt), 'MMMM d, yyyy')}
+  //           </div>
+  //         </CardContent>
+  //       </Card>
+  //     </div>
+  //   </div>
+  // );
 }
