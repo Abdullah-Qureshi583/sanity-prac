@@ -39,27 +39,27 @@ export const product = defineType({
               type: "reference",
               title: "Color of Product",
               to: [{ type: "color" }],
-              // options: {
-              //   filter: ({ document, parent }) => {
-              //     // Get all selected color IDs from the parent array
-              //     const usedColors =
-              //       document.images
-              //         ?.filter((item): item is any[] => Array.isArray(item))
-              //         ?.map((img) => img?.color?._ref)
-              //         ?.filter((ref) => ref && ref !== parent?.color?._ref) ||
-              //       [];
+              options: {
+                filter: ({ document, parent }) => {
+                  // Get all selected color IDs from the parent array
+                  const usedColors =
+                    document.images
+                      ?.filter((item): item is any[] => Array.isArray(item))
+                      ?.map((img) => img?.color?._ref)
+                      ?.filter((ref) => ref && ref !== parent?.color?._ref) ||
+                    [];
 
-              //     if (usedColors.length === 0) {
-              //       return {};
-              //     }
+                  if (usedColors.length === 0) {
+                    return {};
+                  }
 
-              //     // Filter out already-used colors
-              //     return {
-              //       filter: `!(_id in $usedColors)`,
-              //       params: { usedColors },
-              //     };
-              //   },
-              // },
+                  // Filter out already-used colors
+                  return {
+                    filter: `!(_id in $usedColors)`,
+                    params: { usedColors },
+                  };
+                },
+              },
             },
           ],
         },
